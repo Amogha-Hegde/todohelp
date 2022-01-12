@@ -38,7 +38,6 @@ Pillow==8.4.0
 pinax-invitations==7.0.0
 pinax-teams==2.0.0
 prompt-toolkit==3.0.22
-psycopg2==2.9.2
 pycodestyle==2.8.0
 PySocks==1.7.1
 python-crontab==2.6.0

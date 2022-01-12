@@ -20,5 +20,5 @@ import helpdesk
 
 urlpatterns = [
     url(r'helpdesk/', include('helpdesk.urls')),
-    path('admin/', admin.site.urls),
+    path(r'admin/', admin.site.urls),
 ]
