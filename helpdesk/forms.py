@@ -20,6 +20,8 @@ from helpdesk.lib import safe_template_context, process_attachments
 from helpdesk.models import (Ticket, Queue, FollowUp, IgnoreEmail, TicketCC,
                              CustomField, TicketCustomFieldValue, TicketDependency, UserSettings, KBItem)
 from helpdesk import settings as helpdesk_settings
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import LocalUser, Organisation
 
 logger = logging.getLogger(__name__)
 User = get_user_model()
@@ -39,6 +41,20 @@ CUSTOMFIELD_TO_FIELD_DICT = {
 CUSTOMFIELD_DATE_FORMAT = "%Y-%m-%d"
 CUSTOMFIELD_TIME_FORMAT = "%H:%M:%S"
 CUSTOMFIELD_DATETIME_FORMAT = f"{CUSTOMFIELD_DATE_FORMAT} {CUSTOMFIELD_TIME_FORMAT}"
+
+
+class CustomUserChangeForm(UserChangeForm):
+
+    class Meta(UserChangeForm.Meta):
+        model = LocalUser
+        fields = tuple(f.name for f in LocalUser._meta.fields)
+
+
+class CustomUserCreationForm(UserCreationForm):
+
+    class Meta(UserCreationForm.Meta):
+        model = LocalUser
+        fields = UserCreationForm.Meta.fields + ('organisation',)
 
 
 class CustomFieldMixin(object):
@@ -226,11 +242,11 @@ class AbstractTicketForm(CustomFieldMixin, forms.Form):
         help_text=_('You can attach a file to this ticket. Only file types such as plain text (.txt), a document (.pdf, .docx, or .odt), or screenshot (.png or .jpg) may be uploaded.'),
     )
 
-    target = forms.CharField(
-        help_text=_('Target organistation for the ticket'),
-        required=True,
-        widget=forms.TextInput(attrs={'class': 'form-control'}),
-        label=_('Target')
+    target = forms.ModelChoiceField(
+        widget=forms.Select(attrs={'class': 'form-control'}),
+        queryset=Organisation.objects.all(),
+        label=_('Target'),
+        required=True
     )
 
     class Media:
@@ -264,6 +280,9 @@ class AbstractTicketForm(CustomFieldMixin, forms.Form):
     def _get_queue(self):
         # this procedure is re-defined for public submission form
         return Queue.objects.get(id=int(self.cleaned_data['queue']))
+
+    def _get_target(self):
+        return Organisation.objects.filter
 
     def _create_ticket(self):
         queue = self._get_queue()

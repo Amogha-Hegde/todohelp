@@ -40,22 +40,22 @@ class Organisation(models.Model):
         max_length=50,
         help_text=_('Name of the Organisation')
     )
-    user = models.ManyToManyField(
-        settings.AUTH_USER_MODEL
-    )
 
     def __str__(self):
         return self.name
 
 
-# class LocalUser(AbstractUser):
-#     group_org = models.ManyToManyField(
-#         Organisation,
-#         help_text=_('Name of the organisation that the user belongs to')
-#     )
-#
-#     def __str__(self):
-#         return self.username
+class LocalUser(AbstractUser):
+    organisation = models.ForeignKey(
+        Organisation,
+        on_delete=models.CASCADE,
+        help_text=_('Name of the organisation that the user belongs to'),
+        null=True,
+        blank=True
+    )
+
+    def __str__(self):
+        return self.username
 
 
 def format_time_spent(time_spent):
@@ -502,9 +502,10 @@ class Ticket(models.Model):
         (5, _('5. Very Low')),
     )
 
-    target = models.CharField(
-        max_length=50,
-        help_text=_('Target organistation for this ticket')
+    target = models.ForeignKey(
+        Organisation,
+        on_delete=models.CASCADE,
+        verbose_name=_('Organisation'),
     )
 
     title = models.CharField(
