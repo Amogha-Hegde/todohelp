@@ -15,6 +15,8 @@ def huser_from_request(req):
 
 
 class HelpdeskUser:
+    superuser_username = 'admin'
+
     def __init__(self, user):
         self.user = user
 
@@ -75,6 +77,9 @@ class HelpdeskUser:
         #
         # return Ticket.objects.filter(Q(target__in=organisation_names_list) |
         #                              Q(submitter_email__in=usernames_list))
+
+        if self.user.username == self.superuser_username:
+            return Ticket.objects.all()
 
         current_user_organisation = self.user.organisation
         usernames = LocalUser.objects.filter(organisation=current_user_organisation).values_list('username')
