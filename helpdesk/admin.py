@@ -9,7 +9,7 @@ from helpdesk.models import CustomField
 
 # from .models import LocalUser
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import Organisation, LocalUser
+from .models import Organisation, LocalUser, Role
 
 
 @admin.register(Queue)
@@ -108,7 +108,7 @@ class UserAdmin(UserAdmin):
     form = CustomUserChangeForm
     add_form = CustomUserCreationForm
     fieldsets = (
-        (None, {'fields': ('username', 'password', 'organisation')}),
+        (None, {'fields': ('username', 'password', 'organisation', 'role')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name', 'email')}),
         (_('Permissions'), {
             'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'),
@@ -126,7 +126,7 @@ class UserAdmin(UserAdmin):
 # # Re-register UserAdmin
 # admin.site.unregister(LocalUser)
 admin.site.register(LocalUser, UserAdmin)
-
+admin.site.register(Role)
 admin.site.register(Organisation)
 admin.site.register(PreSetReply)
 admin.site.register(EscalationExclusion)

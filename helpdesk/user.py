@@ -81,11 +81,11 @@ class HelpdeskUser:
         if self.user.username == self.superuser_username:
             return Ticket.objects.all()
 
-        current_user_organisation = self.user.organisation
-        usernames = LocalUser.objects.filter(organisation=current_user_organisation).values_list('username')
+        current_user_roles = self.user.role.all()
+        usernames = LocalUser.objects.filter(role__in=current_user_roles).values_list('username')
         usernames_list = [username[0] for username in usernames]
 
-        return Ticket.objects.filter(Q(target=current_user_organisation) |
+        return Ticket.objects.filter(Q(target__in=current_user_roles) |
                                      Q(submitter_email__in=usernames_list))
 
     def has_full_access(self):

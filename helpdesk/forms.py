@@ -21,7 +21,7 @@ from helpdesk.models import (Ticket, Queue, FollowUp, IgnoreEmail, TicketCC,
                              CustomField, TicketCustomFieldValue, TicketDependency, UserSettings, KBItem)
 from helpdesk import settings as helpdesk_settings
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import LocalUser, Organisation
+from .models import LocalUser, Organisation, Role
 
 logger = logging.getLogger(__name__)
 User = get_user_model()
@@ -244,9 +244,10 @@ class AbstractTicketForm(CustomFieldMixin, forms.Form):
 
     target = forms.ModelChoiceField(
         widget=forms.Select(attrs={'class': 'form-control'}),
-        queryset=Organisation.objects.all(),
+        queryset=Role.objects.all(),
         label=_('Target'),
-        required=True
+        required=True,
+        help_text=_('The Target Role of the current Ticket.')
     )
 
     class Media:
@@ -280,9 +281,6 @@ class AbstractTicketForm(CustomFieldMixin, forms.Form):
     def _get_queue(self):
         # this procedure is re-defined for public submission form
         return Queue.objects.get(id=int(self.cleaned_data['queue']))
-
-    def _get_target(self):
-        return Organisation.objects.filter
 
     def _create_ticket(self):
         queue = self._get_queue()

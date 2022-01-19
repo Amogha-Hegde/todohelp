@@ -45,6 +45,24 @@ class Organisation(models.Model):
         return self.name
 
 
+class Role(models.Model):
+    name = models.CharField(
+        max_length=50,
+        help_text=_('Name of the Role')
+    )
+
+    organisation = models.ForeignKey(
+        Organisation,
+        on_delete=models.CASCADE,
+        help_text=_('Name of the organisation that the role belongs to'),
+        null=True,
+        blank=True
+    )
+
+    def __str__(self):
+        return self.name
+
+
 class LocalUser(AbstractUser):
     organisation = models.ForeignKey(
         Organisation,
@@ -52,6 +70,13 @@ class LocalUser(AbstractUser):
         help_text=_('Name of the organisation that the user belongs to'),
         null=True,
         blank=True
+    )
+
+    role = models.ManyToManyField(
+        Role,
+        help_text=_('Roles of the user'),
+        blank=True,
+        null=True
     )
 
     def __str__(self):
@@ -503,9 +528,9 @@ class Ticket(models.Model):
     )
 
     target = models.ForeignKey(
-        Organisation,
+        Role,
         on_delete=models.CASCADE,
-        verbose_name=_('Organisation'),
+        verbose_name=_('Target'),
     )
 
     title = models.CharField(
