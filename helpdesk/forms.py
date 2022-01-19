@@ -49,6 +49,14 @@ class CustomUserChangeForm(UserChangeForm):
         model = LocalUser
         fields = tuple(f.name for f in LocalUser._meta.fields)
 
+    def clean(self):
+        cleaned_data = super().clean()
+        organisation = cleaned_data.get('organisation', None)
+        roles = cleaned_data.get('role', None)
+
+        for role in roles:
+            if role.organisation != organisation:
+                raise ValidationError('Selected roles are outside of this organisation.')
 
 class CustomUserCreationForm(UserCreationForm):
 
