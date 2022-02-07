@@ -367,10 +367,11 @@ class TicketForm(AbstractTicketForm):
     """
     submitter_email = forms.EmailField(
         required=False,
-        label=_('Submitter E-Mail Address'),
-        widget=forms.TextInput(attrs={'class': 'form-control', 'type': 'email'}),
-        help_text=_('This e-mail address will receive copies of all public '
-                    'updates to this ticket.'),
+        # label=_('Submitter E-Mail Address'),
+        # widget=forms.TextInput(attrs={'class': 'form-control', 'type': 'email'}),
+        widget=forms.HiddenInput(),
+        # help_text=_('This e-mail address will receive copies of all public '
+        #             'updates to this ticket.'),
     )
     assigned_to = forms.ChoiceField(
         widget=(
@@ -408,6 +409,10 @@ class TicketForm(AbstractTicketForm):
         """
 
         ticket, queue = self._create_ticket()
+
+        if not self.cleaned_data['submitter_email']:  # Setting the submitter of the ticket as the logged-in user
+            ticket.submitter_email = user.username
+
         if self.cleaned_data['assigned_to']:
             try:
                 u = User.objects.get(id=self.cleaned_data['assigned_to'])

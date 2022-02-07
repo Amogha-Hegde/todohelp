@@ -58,25 +58,12 @@ class HelpdeskUser:
         pass
 
     def get_tickets_in_queues(self):
-        # username = self.user.username
-        # domain_start_index = username.find('@')
-        # domain_end_index = username.find('.')
-        # slice_obj = slice(domain_start_index+1, domain_end_index)
-        # return Ticket.objects.filter(Q(submitter_email__contains=username[slice_obj]) |
-        #                              Q(target__iexact=username[slice_obj]))  #  changes for filtering tickets according to user
-
-        # organisations_of_the_current_user = Organisation.objects.filter(user=self.user)
-        # usernames_list = []
-        #
-        # for organisation in organisations_of_the_current_user:
-        #     usernames = organisation.user.values_list('username')  #  Will return list of tuples, each having single element username
-        #     usernames_list += [username[0] for username in usernames]  #  Will return list of usernames
-        #
-        # organisation_names = organisations_of_the_current_user.values_list('name')  # returns a list of tuples
-        # organisation_names_list = [name[0] for name in organisation_names]  # returns a list of names
-        #
-        # return Ticket.objects.filter(Q(target__in=organisation_names_list) |
-        #                              Q(submitter_email__in=usernames_list))
+        """
+        Filtering tickets for the current(logged-in) user if :-
+        1. If the ticket was targeted to the current user's role
+        2. If the ticket submitter has the same role as the current user
+        3. If the ticket's case owner is the current user
+        """
 
         if self.user.username == self.superuser_username:
             return Ticket.objects.all()
@@ -86,7 +73,8 @@ class HelpdeskUser:
         usernames_list = [username[0] for username in usernames]
 
         return Ticket.objects.filter(Q(target__in=current_user_roles) |
-                                     Q(submitter_email__in=usernames_list))
+                                     Q(submitter_email__in=usernames_list) |
+                                     Q(assigned_to=self.user))
 
     def has_full_access(self):
         return self.user.is_superuser or self.user.is_staff \
