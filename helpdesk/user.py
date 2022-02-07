@@ -65,7 +65,7 @@ class HelpdeskUser:
         3. If the ticket's case owner is the current user
         """
 
-        if self.user.username == self.superuser_username:
+        if self.user.username == self.superuser_username:  # admin user must be able to see all tickets
             return Ticket.objects.all()
 
         current_user_roles = self.user.role.all()
