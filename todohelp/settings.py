@@ -156,3 +156,8 @@ LOGIN_URL = '/helpdesk/login/'
 DEFAULT_FROM_EMAIL = 'helpdesk@example.com'
 SERVER_EMAIL = 'helpdesk@example.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# Helpdesk Custom Settings
+
+HELPDESK_VIEW_A_TICKET_PUBLIC = True

@@ -175,6 +175,10 @@ def search_for_ticket(request, error_message=None):
 
 @protect_view
 def view_ticket(request):
+    """
+    Ticket is filtered by
+    Ticket title and the submitter_email taken from the query params
+    """
     ticket_req = request.GET.get('ticket', None)
     email = request.GET.get('email', None)
     key = request.GET.get('key', '')
@@ -185,12 +189,13 @@ def view_ticket(request):
         else:
             return search_for_ticket(request, _('Missing ticket ID or e-mail address. Please try again.'))
 
-    queue, ticket_id = Ticket.queue_and_id_from_query(ticket_req)
+    # Below line deprecated
+    # queue, ticket_id = Ticket.queue_and_id_from_query(ticket_req)
     try:
         if hasattr(settings, 'HELPDESK_VIEW_A_TICKET_PUBLIC') and settings.HELPDESK_VIEW_A_TICKET_PUBLIC:
-            ticket = Ticket.objects.get(id=ticket_id, submitter_email__iexact=email)
+            ticket = Ticket.objects.get(title=ticket_req, submitter_email__iexact=email)
         else:
-            ticket = Ticket.objects.get(id=ticket_id, submitter_email__iexact=email, secret_key__iexact=key)
+            ticket = Ticket.objects.get(title=ticket_req, submitter_email__iexact=email, secret_key__iexact=key)
     except (ObjectDoesNotExist, ValueError):
         return search_for_ticket(request, _('Invalid ticket ID or e-mail address. Please try again.'))
 
