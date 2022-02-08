@@ -531,6 +531,7 @@ class Ticket(models.Model):
         Role,
         on_delete=models.CASCADE,
         verbose_name=_('Target'),
+        null=True
     )
 
     title = models.CharField(
