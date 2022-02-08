@@ -254,8 +254,9 @@ class AbstractTicketForm(CustomFieldMixin, forms.Form):
         widget=forms.Select(attrs={'class': 'form-control'}),
         queryset=Role.objects.all(),
         label=_('Target'),
-        required=True,
-        help_text=_('The Target Role of the current Ticket.')
+        required=False,
+        help_text=_('The Target Role of the current Ticket.'),
+        blank=True
     )
 
     class Media:
