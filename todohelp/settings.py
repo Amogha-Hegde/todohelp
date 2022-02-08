@@ -153,11 +153,26 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_URL = '/helpdesk/login/'
 
 
-DEFAULT_FROM_EMAIL = 'helpdesk@example.com'
-SERVER_EMAIL = 'helpdesk@example.com'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# Email settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nr2055@srmist.edu.in'
+EMAIL_HOST_PASSWORD = 'Envymeorelse2@'
+
 
 
 # Helpdesk Custom Settings
 
 HELPDESK_VIEW_A_TICKET_PUBLIC = True
+
+DEFAULT_FROM_EMAIL = 'nr2055@srmist.edu.in'
+SERVER_EMAIL = 'nr2055@srmist.edu.in'
+
+QUEUE_EMAIL_BOX_TYPE = 'imap'
+QUEUE_EMAIL_BOX_SSL = True
+QUEUE_EMAIL_BOX_HOST = 'imap.gmail.com'
+QUEUE_EMAIL_BOX_USER = 'nr2055@srmist.edu.in'
+QUEUE_EMAIL_BOX_PASSWORD = 'Envymeorelse2@'
