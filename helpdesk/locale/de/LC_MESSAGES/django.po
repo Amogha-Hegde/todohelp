@@ -11,7 +11,7 @@
 # Horst Gutmann <zerok@zerokspot.com>, 2012
 msgid ""
 msgstr ""
-"Project-Id-Version: django-helpdesk\n"
+"Project-Id-Version: BankBuddy Helpdesk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-12 13:12+0100\n"
 "PO-Revision-Date: 2018-05-30 16:52+0200\n"
@@ -1421,8 +1421,8 @@ msgstr ""
 "helpdesk</a>."
 
 #: templates/helpdesk/base-head.html:14
-msgid "Powered by django-helpdesk"
-msgstr "Powered by django-helpdesk"
+msgid "Powered by BankBuddy Helpdesk"
+msgstr "Powered by BankBuddy Helpdesk"
 
 #: templates/helpdesk/base-head.html:47 templates/helpdesk/rss_list.html:21
 #: templates/helpdesk/rss_list.html:47

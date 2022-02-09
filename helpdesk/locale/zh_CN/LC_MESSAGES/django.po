@@ -7,7 +7,7 @@
 # pjsong <pjsong3101@163.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: django-helpdesk\n"
+"Project-Id-Version: BankBuddy Helpdesk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-30 03:19+0000\n"
 "PO-Revision-Date: 2017-12-06 08:13+0000\n"
@@ -1326,8 +1326,7 @@ msgstr ""
 "<a href='https://github.com/rossp/django-helpdesk'>django-helpdesk</a>."
 
 #: templates/helpdesk/base-head.html:14
-msgid "Powered by django-helpdesk"
-msgstr "由 django-helpdesk 主导"
+msgid "Powered by BankBuddy Helpdesk"msgstr "由 django-helpdesk 主导"
 
 #: templates/helpdesk/base-head.html:47 templates/helpdesk/rss_list.html:21
 #: templates/helpdesk/rss_list.html:47

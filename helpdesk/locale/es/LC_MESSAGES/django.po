@@ -9,7 +9,7 @@
 # Ross Poulton <ross@rossp.org>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: django-helpdesk\n"
+"Project-Id-Version: BankBuddy Helpdesk\n"
 "Report-Msgid-Bugs-To: http://github.com/RossP/django-helpdesk/issues\n"
 "POT-Creation-Date: 2012-08-07 20:40+1000\n"
 "PO-Revision-Date: 2013-04-29 09:18+0000\n"
@@ -980,8 +980,7 @@ msgstr "(Actualizado)"
 
 #: templates/helpdesk/attribution.html:2
 msgid ""
-"Powered by <a href='https://github.com/rossp/django-helpdesk'>django-"
-"helpdesk</a>."
+"Powered by <a href='https://www.bankbuddy.ai/'>Bankbuddy Helpdesk</a>."
 msgstr ""
 
 #: templates/helpdesk/attribution.html:4
@@ -989,8 +988,7 @@ msgid "For technical support please contact:"
 msgstr "Para contacto técnico por favor contate a:"
 
 #: templates/helpdesk/base.html:9
-msgid "Powered by django-helpdesk"
-msgstr "Powered by django-helpdesk"
+msgid "Powered by BankBuddy Helpdesk"msgstr "Powered by BankBuddy Helpdesk"
 
 #: templates/helpdesk/base.html:19 templates/helpdesk/rss_list.html:9
 #: templates/helpdesk/rss_list.html:23 templates/helpdesk/rss_list.html:28

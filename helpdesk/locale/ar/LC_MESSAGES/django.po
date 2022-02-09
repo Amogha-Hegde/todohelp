@@ -6,7 +6,7 @@
 # Beshoy Atef <beshosmile@hotmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: django-helpdesk\n"
+"Project-Id-Version: BankBuddy Helpdesk\n"
 "Report-Msgid-Bugs-To: http://github.com/RossP/django-helpdesk/issues\n"
 "POT-Creation-Date: 2012-08-07 20:40+1000\n"
 "PO-Revision-Date: 2013-11-20 11:07+0000\n"
@@ -977,8 +977,7 @@ msgstr ""
 
 #: templates/helpdesk/attribution.html:2
 msgid ""
-"Powered by <a href='https://github.com/rossp/django-helpdesk'>django-"
-"helpdesk</a>."
+"Powered by <a href='https://www.bankbuddy.ai/'>BankBuddy Helpdesk</a>."
 msgstr ""
 
 #: templates/helpdesk/attribution.html:4
@@ -986,7 +985,7 @@ msgid "For technical support please contact:"
 msgstr ""
 
 #: templates/helpdesk/base.html:9
-msgid "Powered by django-helpdesk"
+msgid "Powered by BankBuddy Helpdesk"
 msgstr ""
 
 #: templates/helpdesk/base.html:19 templates/helpdesk/rss_list.html:9

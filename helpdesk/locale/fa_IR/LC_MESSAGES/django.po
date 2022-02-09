@@ -7,7 +7,7 @@
 # Morteza Nekoei <cisco.ir@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: django-helpdesk\n"
+"Project-Id-Version: BankBuddy Helpdesk\n"
 "Report-Msgid-Bugs-To: http://github.com/RossP/django-helpdesk/issues\n"
 "POT-Creation-Date: 2014-07-26 14:14+0200\n"
 "PO-Revision-Date: 2016-10-10 22:42+0000\n"
@@ -1091,8 +1091,7 @@ msgid ""
 msgstr ""
 
 #: templates/helpdesk/base.html:10
-msgid "Powered by django-helpdesk"
-msgstr ""
+msgid "Powered by BankBuddy Helpdesk"msgstr ""
 
 #: templates/helpdesk/base.html:20 templates/helpdesk/rss_list.html:9
 #: templates/helpdesk/rss_list.html:24 templates/helpdesk/rss_list.html:31

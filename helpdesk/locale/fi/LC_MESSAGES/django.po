@@ -1335,8 +1335,7 @@ msgid ""
 msgstr ""
 "<a href='https://github.com/rossp/django-helpdesk'>django-helpdesk</a> ."
 
-msgid "Powered by django-helpdesk"
-msgstr "Powered by django-helpdesk"
+msgid "Powered by BankBuddy Helpdesk"msgstr "Powered by BankBuddy Helpdesk"
 
 msgid "My Open Tickets"
 msgstr "Omat tukipyynnöt"

@@ -7,7 +7,7 @@
 # jachym <jachym.cepicky@opengeolabs.cz>, 2019
 msgid ""
 msgstr ""
-"Project-Id-Version: django-helpdesk\n"
+"Project-Id-Version: BankBuddy Helpdesk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-16 18:19+0100\n"
 "PO-Revision-Date: 2020-01-16 18:23+0100\n"
@@ -1408,8 +1408,8 @@ msgstr ""
 "helpdesk</a>."
 
 #: third_party/django-helpdesk/helpdesk/templates/helpdesk/base-head.html:14
-msgid "Powered by django-helpdesk"
-msgstr "Powered by django-helpdesk"
+msgid "Powered by BankBuddy Helpdesk"
+msgstr "Powered by BankBuddy Helpdesk"
 
 #: third_party/django-helpdesk/helpdesk/templates/helpdesk/base-head.html:46
 #: third_party/django-helpdesk/helpdesk/templates/helpdesk/rss_list.html:21
