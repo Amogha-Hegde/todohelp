@@ -159,8 +159,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'nr2055@srmist.edu.in'
-EMAIL_HOST_PASSWORD = 'Envymeorelse2@'
+EMAIL_HOST_USER = 'bankbuddyhelpdesk@gmail.com'
+EMAIL_HOST_PASSWORD = 'KongRefer'
 
 
 
@@ -168,11 +168,11 @@ EMAIL_HOST_PASSWORD = 'Envymeorelse2@'
 
 HELPDESK_VIEW_A_TICKET_PUBLIC = True
 
-DEFAULT_FROM_EMAIL = 'nr2055@srmist.edu.in'
-SERVER_EMAIL = 'nr2055@srmist.edu.in'
+DEFAULT_FROM_EMAIL = 'bankbuddyhelpdesk@gmail.com'
+SERVER_EMAIL = 'bankbuddyhelpdesk@gmail.com'
 
 QUEUE_EMAIL_BOX_TYPE = 'imap'
 QUEUE_EMAIL_BOX_SSL = True
 QUEUE_EMAIL_BOX_HOST = 'imap.gmail.com'
-QUEUE_EMAIL_BOX_USER = 'nr2055@srmist.edu.in'
-QUEUE_EMAIL_BOX_PASSWORD = 'Envymeorelse2@'
+QUEUE_EMAIL_BOX_USER = 'bankbuddyhelpdesk@gmail.com'
+QUEUE_EMAIL_BOX_PASSWORD = 'KongRefer'
