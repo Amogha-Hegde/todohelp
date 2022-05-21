@@ -19,9 +19,14 @@ from django.conf.urls import url
 import helpdesk
 
 from helpdesk.views.dummy_webhook import dummy_webhook
+from rest_framework.urls import urlpatterns
+
+# urlpatterns = [
+#     url(r'helpdesk/', include('helpdesk.urls')),
+#     path(r'admin/', admin.site.urls),
+#     path('dummy-webhook', dummy_webhook)
+# ]
 
 urlpatterns = [
-    url(r'helpdesk/', include('helpdesk.urls')),
-    path(r'admin/', admin.site.urls),
     path('dummy-webhook', dummy_webhook)
 ]
